@@ -1,2 +1,4 @@
 # LeetCode-Go
-LeetCode练习（原文https://books.halfrost.com/leetcode/）
+LeetCode-Go练习
+
+原文 [LeetCode Cookbook](https://books.halfrost.com/leetcode/)
