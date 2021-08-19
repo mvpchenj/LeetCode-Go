@@ -38,31 +38,31 @@ type ListNode struct {
 }
 
 func main() {
-	fmt.Printf("%+v \n", generateListNode([]int{2, 4, 3}))
-	return
 	s1 := []int{9, 9, 9, 9, 9, 9, 9}
 	s2 := []int{9, 9, 9, 9}
-	l1 := generateListNode(s1)
-	l2 := generateListNode(s2)
+	l1 := generateList(s1)
+	l2 := generateList(s2)
 	fmt.Println(addTwoNumbers(l1, l2))
 }
 
-// generateListNode 342 逆序slice就是[2,4,3], 组成listNode的时候也是2，4，3
-func generateListNode(s []int) *ListNode {
+// generateList 342 逆序slice就是[2,4,3], 组成listNode的时候也是2，4，3
+func generateList(s []int) *ListNode {
 	if len(s) == 0 {
 		return nil
 	}
-	// 构建最后一个Node
 	list := &ListNode{
-		Val:  s[len(s)-1],
+		Val:  s[0],
 		Next: nil,
 	}
-	for i := len(s) - 1; i > 0; i-- {
+	current := list
+
+	for i := 1; i < len(s); i++ {
 		subNode := &ListNode{
-			Val:  s[i-1],
-			Next: list,
+			Val:  s[i],
+			Next: nil,
 		}
-		subNode.Next = list
+		current.Next = subNode
+		current = subNode
 	}
 	return list
 }
